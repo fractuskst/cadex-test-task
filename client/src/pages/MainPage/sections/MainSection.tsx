@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import ContactUsButton from "../../../components/ContactUsButton";
-import { Col, Row } from "antd";
+import styled from 'styled-components';
+import ContactUsButton from '../../../components/ContactUsButton';
+import { Col, Row } from 'antd';
 
 const article = {
-  title: "Title",
-  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum",
+  title: 'Title',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum',
 };
 
 const StyledSection = styled.div`
@@ -12,6 +12,7 @@ const StyledSection = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
+  background-color: #fff;
 `;
 
 const StyledMainTitle = styled.h1`
@@ -27,7 +28,6 @@ const StyledGrid = styled.div`
 
 const ArticleCard = styled.div`
   max-width: 300px;
-  font-family: "Times New Roman", serif;
 
   & > h3 {
     font-size: 24px;

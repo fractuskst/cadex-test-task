@@ -4,10 +4,13 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 197px;
+  height: 200px;
   border-top: 2px solid #e6e6e6;
   position: sticky;
+  bottom: 0;
   margin-top: auto;
+  background-color: #fff;
+  z-index: 100;
 `;
 
 const FooterText = styled.span`

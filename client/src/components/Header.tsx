@@ -1,16 +1,18 @@
-import styled from "styled-components";
-import ContactUsButton from "./ContactUsButton";
-import { useNavigate } from "react-router-dom";
+import styled from 'styled-components';
+import ContactUsButton from './ContactUsButton';
+import { useNavigate } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 96px;
+  height: 100px;
   border-bottom: 2px solid #e6e6e6;
   padding: 0 50px 0 25px;
   position: sticky;
+  top: 0;
   z-index: 100;
+  background-color: #fff;
 `;
 
 const CompanyName = styled.span`
@@ -24,7 +26,7 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <CompanyName onClick={() => navigate("/")}>Some Company</CompanyName>
+      <CompanyName onClick={() => navigate('/')}>Some Company</CompanyName>
       <ContactUsButton />
     </StyledHeader>
   );
