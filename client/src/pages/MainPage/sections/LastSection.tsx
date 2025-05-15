@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ContactUsButton from '../../../components/ContactUsButton';
 
-const StyledSection = styled.div`
+const StyledSection = styled.section`
   height: 275px;
   display: flex;
   flex-direction: column;
@@ -10,9 +10,14 @@ const StyledSection = styled.div`
   border-top: 1px solid #e6e6e6;
 `;
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.h2`
   font-size: 48px;
   margin-bottom: 40px;
+  text-align: center;
+
+  @media (max-width: 560px) {
+    font-size: 34px;
+  }
 `;
 
 const LastSection = () => {

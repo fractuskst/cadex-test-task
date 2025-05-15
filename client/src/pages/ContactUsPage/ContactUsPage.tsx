@@ -14,10 +14,18 @@ const StyledPage = styled.div`
 const StyledTitle = styled.h1`
   margin-bottom: 30px;
   font-size: 72px;
+  text-align: center;
+
+  @media (max-width: 700px) {
+    font-size: 60px;
+    margin-bottom: 15px;
+    padding: 20px;
+  }
 `;
 
-const StyledForm = styled(Form)`
-  width: 320px;
+const StyledFormContainer = styled.div`
+  width: 100%;
+  max-width: 320px;
   min-height: 410px;
   background-color: #fff;
   padding: 20px;
@@ -60,11 +68,17 @@ const StyledButton = styled(Button)`
   font-size: 16px;
 `;
 
+interface FormValues {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const ContactUsPage = () => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm<FormValues>();
   const [submissionResponse, setSubmissionResponse] = useState(null);
 
-  const onFinish = async (values) => {
+  const onFinish = async (values: FormValues) => {
     try {
       const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
@@ -89,26 +103,28 @@ const ContactUsPage = () => {
       ) : (
         <>
           <StyledTitle>Only CTA on the page</StyledTitle>
-          <StyledForm layout="vertical" requiredMark={false} onFinish={onFinish} form={form}>
-            <StyledFormItem label="Name" name="name" rules={[{ required: true, message: 'Please input your name!' }]}>
-              <StyledInput placeholder="Value" />
-            </StyledFormItem>
-            <StyledFormItem label="Email" name="email" rules={[{ required: true, message: 'Please input your email!' }]}>
-              <StyledInput placeholder="Value" />
-            </StyledFormItem>
-            <StyledFormItem
-              label="Message"
-              name="message"
-              rules={[{ required: true, message: 'Please input your message!' }]}
-            >
-              <StyledTextArea rows={3} placeholder="Value" />
-            </StyledFormItem>
-            <Form.Item>
-              <StyledButton color="default" variant="solid" htmlType="submit">
-                Submit
-              </StyledButton>
-            </Form.Item>
-          </StyledForm>
+          <StyledFormContainer>
+            <Form layout="vertical" requiredMark={false} onFinish={onFinish} form={form}>
+              <StyledFormItem label="Name" name="name" rules={[{ required: true, message: 'Please input your name!' }]}>
+                <StyledInput placeholder="Value" />
+              </StyledFormItem>
+              <StyledFormItem label="Email" name="email" rules={[{ required: true, message: 'Please input your email!' }]}>
+                <StyledInput placeholder="Value" />
+              </StyledFormItem>
+              <StyledFormItem
+                label="Message"
+                name="message"
+                rules={[{ required: true, message: 'Please input your message!' }]}
+              >
+                <StyledTextArea rows={3} placeholder="Value" />
+              </StyledFormItem>
+              <Form.Item>
+                <StyledButton color="default" variant="solid" htmlType="submit">
+                  Submit
+                </StyledButton>
+              </Form.Item>
+            </Form>
+          </StyledFormContainer>
         </>
       )}
     </StyledPage>

@@ -13,12 +13,20 @@ const StyledHeader = styled.header`
   top: 0;
   z-index: 100;
   background-color: #fff;
+
+  @media (max-width: 460px) {
+    padding: 0 25px;
+  }
 `;
 
 const CompanyName = styled.span`
   font-size: 24px;
   font-weight: 600;
   cursor: pointer;
+
+  @media (max-width: 400px) {
+    width: 150px;
+  }
 `;
 
 const Header = () => {
